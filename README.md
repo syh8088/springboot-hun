@@ -116,9 +116,19 @@
 * Thread
 
 
+### 6주차
+
+1. 중간 점검
+2. Swagger
+    
+###### 참고
+[Springfox Reference Documentation](https://springfox.github.io/springfox/docs/snapshot/)
+[Setting Up Swagger 2 with a Spring REST API](https://www.baeldung.com/swagger-2-documentation-for-spring-rest-api)
+
+
 ### 앞으로의 대략적인 컨텐츠
 
-빈과 스레드 세이프
+프로파일과 @Value
 
 * Template engine - Thymeleaf 세팅
 * Spring valid 와 BindingResult 로 유효성 검증
@@ -146,3 +156,5 @@
     * architecture
     * Authentication and AccessController
     * Filter
+    
+* spring batch

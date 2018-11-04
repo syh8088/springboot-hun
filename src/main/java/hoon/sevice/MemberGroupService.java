@@ -1,7 +1,6 @@
 package hoon.sevice;
 
 import hoon.dao.group.MemberGroupRepository;
-import hoon.model.entity.Member;
 import hoon.model.entity.MemberGroup;
 import hoon.model.view.MemberGroupViewModel;
 import lombok.extern.slf4j.Slf4j;

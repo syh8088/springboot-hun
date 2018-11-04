@@ -1,5 +1,6 @@
 package hoon.model.entity;
 
+import io.swagger.annotations.ApiModelProperty;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -17,6 +18,7 @@ import java.util.Set;
 public class MemberGroup extends Common {
 
     @Id
+    @ApiModelProperty(notes = "ID", readOnly = true)
     private long memberGroupNo;
     private String name;
     private String description;
