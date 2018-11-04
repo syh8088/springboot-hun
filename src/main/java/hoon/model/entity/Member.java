@@ -3,7 +3,7 @@ package hoon.model.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import hoon.annotation.Encrypt;
-import hoon.model.enums.EncryptType;
+import hoon.model.enums.OauthType;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -51,4 +51,9 @@ public class Member extends Common {
      *
      * 이땐 fetchJon을 사용한다. -> JPQL FetchJoin 참고
      */
+
+    @Enumerated(EnumType.STRING) // NOTE #9 없으면 enum의 순서(숫자) db 저장
+    private OauthType oauthType;
+
+    private String oauthId;
 }

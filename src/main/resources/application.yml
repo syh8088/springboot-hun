@@ -21,3 +21,26 @@ mybatis:
 debug: true
 logging:
   level: debug
+
+naver:
+  client:
+    clientId: ZYywOLuKwRvc5jHguZy4
+    clientSecret: 9I1vFrLO9R
+    accessTokenUri: https://nid.naver.com/oauth2.0/token
+    userAuthorizationUri: https://nid.naver.com/oauth2.0/authorize
+    tokenName: oauth_token
+    authenticationScheme: query
+    clientAuthenticationScheme: form
+  resource:
+    userInfoUri: https://openapi.naver.com/v1/nid/me
+
+google:
+  client:
+    clientId: 511375137611-qt3j0stisi2r323ftqpli304hu87aofs.apps.googleusercontent.com
+    clientSecret: eeDzdJjks7f7ixu1HxmAA6Ld
+    accessTokenUri: https://accounts.google.com/o/oauth2/token
+    userAuthorizationUri: https://accounts.google.com/o/oauth2/auth
+    clientAuthenticationScheme: form
+    scope: email, profile
+  resource:
+    userInfoUri: https://www.googleapis.com/oauth2/v2/userinfo

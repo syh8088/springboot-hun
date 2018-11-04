@@ -155,6 +155,7 @@
 * [How To Do @Async in Spring](https://www.baeldung.com/spring-async) 
 * [Caching Data with Spring](https://spring.io/guides/gs/caching/)
 * [Creating Asynchronous Methods](https://spring.io/guides/gs/async-method/)
+* [11장 트랜잭션 관리 #2](https://blog.outsider.ne.kr/870)
 
 - - -
 
@@ -174,33 +175,41 @@
     6. UserDetailService
     7. passwordEncoder
     
-####### 참고
+###### 참고
 * DaoAuthenticationProvider.class (기본으로 구현되는 provider)
 
 ###### 추가로 공부해야할 것
 * CSRF
 * Thymeleaf
-    
-    
-###### 참고
-* [11장 트랜잭션 관리 #2](https://blog.outsider.ne.kr/870)
+
 
 - - -
 
-### 앞으로의 대략적인 컨텐츠
-
-* Spring Security
-    * login - 8주차
-    * architecture
-    * Authentication and AccessController
-    * Filter
+### 9주차
+1. AuthenticationProvider 의 역할 CustomAuthenticationProvider.class
+2. EnableOAuth2Client 로 Oauth2 개발하기
+    1. @EnableOAuth2Client
+    2. @ConfigurationProperties
+    3. ssoFilter
+    4. Principal
+    5. AuthenticationSuccessHandler : OAuthSuccessHandler.class
     
+###### 참고
+* [Spring security docs - 3. What’s New in Spring Security 5.0](https://docs.spring.io/spring-security/site/docs/5.0.5.RELEASE/reference/htmlsingle/#new)
+* [Spring docs - Hello Spring Security with Boot](https://docs.spring.io/spring-security/site/docs/5.0.5.RELEASE/guides/html5/helloworld-boot.html)
+* [Spring blog - Spring Security Architecture](https://spring.io/guides/topicals/spring-security-architecture/)
+* [oauth 로그인 세션 관리](https://jojoldu.tistory.com/170?category=635883)
+* [Spring Security OAuth 통합 로그인 : 1. OAuth 소개](https://gs.saro.me/dev?tn=518)
+
+- - -
+
+### 앞으로의 대략적인 컨텐츠?
+
 * 프로파일과 @Value
 
 * Template engine - Thymeleaf 세팅
 * Spring valid 와 BindingResult 로 유효성 검증
 
-* war 와 jar 차이점
 * Junit 과 Mockito 로 테스팅하기
 
 * MessageSources

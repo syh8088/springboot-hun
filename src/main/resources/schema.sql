@@ -5,6 +5,8 @@ CREATE TABLE member
   password        VARCHAR2(60)                      NOT NULL,
   name            VARCHAR2(30)                      NULL,
   member_group_no BIGINT                            NULL,
+  oauth_type      VARCHAR(10)                       NULL,
+  oauth_id        VARCHAR(64)                       NULL,
   delete_yn       VARCHAR2(1)                       NOT NULL DEFAULT 'N',
   register_ymdt   TIMESTAMP                         NOT NULL DEFAULT CURRENT_TIMESTAMP,
   update_ymdt     TIMESTAMP                         NOT NULL DEFAULT CURRENT_TIMESTAMP

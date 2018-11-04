@@ -3,8 +3,10 @@ package hoon.sevice;
 import hoon.dao.member.MemberMapper;
 import hoon.dao.member.MemberRepository;
 import hoon.model.entity.Member;
+import hoon.model.enums.OauthType;
 import hoon.util.Constants;
 import lombok.extern.slf4j.Slf4j;
+import org.hibernate.Hibernate;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -67,6 +69,15 @@ public class MemberService {
         BeanUtils.copyProperties(member, originMember, IGNORE_FIELD_WHEN_MODIFY);
         // NOTE #4-5 강제 flush = save()
         // memberRepository.save(originMember);
+        return member;
+    }
+
+    @Transactional
+    public Member getMemberByOauthTypeAndId(OauthType type, String id) {
+        Member member = memberRepository.findByOauthTypeAndOauthId(type, id);
+        if (member != null) {
+            Hibernate.initialize(member.getRoles());
+        }
         return member;
     }
 }

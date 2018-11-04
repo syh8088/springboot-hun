@@ -9,6 +9,8 @@
 <H6>
     <th:block sec:authorize="!isAuthenticated()">
         <a th:href="@{/login}">로그인</a>
+        <a th:href="@{/login/naver}">naver 로그인</a>
+        <a th:href="@{/login/google}">google 로그인</a>
     </th:block>
     <th:block sec:authorize="isAuthenticated()">
         이름 : <span sec:authentication="name"></span> |
