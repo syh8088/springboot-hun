@@ -8,5 +8,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface MemberMapper {
 
-    Member selectById(long no);
+    Member selectByNo(long no);
 }

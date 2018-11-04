@@ -21,12 +21,12 @@ import java.util.stream.Collectors;
 @Order(Ordered.HIGHEST_PRECEDENCE)
 public class EncryptAspect {
 
-    // NOTE : execution([접근제한자] 리턴타입 [패키지~클래스.]이름(파라미터| "..", ...)
+    // NOTE #7 execution([접근제한자] 리턴타입 [패키지~클래스.]이름(파라미터| "..", ...)
     @Pointcut("execution(public * hoon.dao..*.*(..))")
     public void mapper() {
     }
 
-    // NOTE : Advisor의 종류 - @Before @After @AfterReturning @Around @AfterThrowing
+    // NOTE #7 Advisor의 종류 - @Before @After @AfterReturning @Around @AfterThrowing
     @Around("mapper()")
     public Object checkArgumentAndReturnObjectForEncryptAnnotationField(ProceedingJoinPoint joinPoint) throws Throwable {
         Object[] args = joinPoint.getArgs();

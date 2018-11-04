@@ -24,4 +24,12 @@ public class MemberRepositoryImpl extends QueryDslRepositorySupport implements M
                 .where(member.memberNo.eq(no))
                 .fetchOne();
     }
+
+    @Override
+    public Member getMemberById(String name) {
+        return from(member)
+                .leftJoin(member.roles).fetchJoin()
+                .where(member.id.eq(name))
+                .fetchOne();
+    }
 }

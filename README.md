@@ -156,22 +156,52 @@
 * [Caching Data with Spring](https://spring.io/guides/gs/caching/)
 * [Creating Asynchronous Methods](https://spring.io/guides/gs/async-method/)
 
+- - -
+
+### 8주차
+1. CustomTransactionManager
+    * TransactionTemplate 사용
+    * PlatformTransactionManager: CustomTransactionManager.class
+    
+2. Thymeleaf
+
+3. Spring security
+    1. WebSecurityConfigurer interface
+    2. HttpSecurity, WebSecurity, AuthenticationManagerBuilder 를 받는 configure() 
+    3. antMatchers 로 url 단위로 권한 authenticate
+    4. login, logout
+    5. AuthenticationManager
+    6. UserDetailService
+    7. passwordEncoder
+    
+####### 참고
+* DaoAuthenticationProvider.class (기본으로 구현되는 provider)
+
+###### 추가로 공부해야할 것
+* CSRF
+* Thymeleaf
+    
+    
+###### 참고
+* [11장 트랜잭션 관리 #2](https://blog.outsider.ne.kr/870)
+
+- - -
+
 ### 앞으로의 대략적인 컨텐츠
 
-프로파일과 @Value
+* Spring Security
+    * login - 8주차
+    * architecture
+    * Authentication and AccessController
+    * Filter
+    
+* 프로파일과 @Value
 
 * Template engine - Thymeleaf 세팅
 * Spring valid 와 BindingResult 로 유효성 검증
 
-* Swagger 로 RestAPI view 만들기
 * war 와 jar 차이점
 * Junit 과 Mockito 로 테스팅하기
-
-
-* AOP 와 응용 모듈들
-    * transactional
-    * async
-    * cache
 
 * MessageSources
     * internationalization
@@ -180,11 +210,5 @@
 * Exception 처리하기
     * 어디서 처리해야하나?
     * ControllerAdvice, ExceptionHandler
-
-* Spring Security
-    * login
-    * architecture
-    * Authentication and AccessController
-    * Filter
     
 * spring batch

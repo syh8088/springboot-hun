@@ -5,4 +5,6 @@ import hoon.model.entity.Member;
 public interface MemberRepositoryCustom {
 
     Member getMemberByNo(long no);
+
+    Member getMemberById(String name);
 }

@@ -8,7 +8,10 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.TransactionStatus;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.transaction.support.TransactionCallback;
+import org.springframework.transaction.support.TransactionTemplate;
 
 @Service
 @Slf4j
@@ -17,12 +20,15 @@ public class MemberService {
     private final MemberMapper memberMapper;
     private final MemberRepository memberRepository;
 
+    private final TransactionTemplate transactionTemplate;
+
     private static final String IGNORE_FIELD_WHEN_MODIFY[] = {Constants.DELETE_YN, Constants.REGISTER_YMDT, Constants.UPDATE_YMDT};
 
     @Autowired
-    public MemberService(MemberMapper memberMapper, MemberRepository memberRepository) {
+    public MemberService(MemberMapper memberMapper, MemberRepository memberRepository, TransactionTemplate transactionTemplate) {
         this.memberMapper = memberMapper;
         this.memberRepository = memberRepository;
+        this.transactionTemplate = transactionTemplate;
     }
 
     public Member getMember(long no, String type) {
@@ -41,13 +47,14 @@ public class MemberService {
                 member = memberRepository.getMemberByNo(no);
                 break;
             default:
-                member = memberMapper.selectById(no);
+                member = memberMapper.selectByNo(no);
         }
         return member;
     }
 
     public Member saveSomethingMember(Member member) {
-        return memberRepository.save(member);
+        // NOTE #8  transactionTemplate의 사용
+        return transactionTemplate.execute(status -> memberRepository.save(member));
     }
 
     // NOTE #4-2 JPA 의 Flush 이 되는 시점은 Transaction 이 끝날떄 입니다.
