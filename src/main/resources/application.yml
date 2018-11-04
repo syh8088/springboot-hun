@@ -1,2 +1,23 @@
 server:
   port: 8081
+spring:
+  h2:
+    console:
+      # TODO #8 H2 web console
+      enabled: true
+  datasource:
+    hikari:
+      minimum-idle: 5
+      maximum-pool-size: 5
+      connection-timeout: 5000
+# TODO #11 Mapping mapper.xml
+mybatis:
+  mapper-locations: classpath*:mapper/**/*.xml
+  type-aliases-package: hoon.model
+  configuration:
+      map-underscore-to-camel-case: true
+# TODO #1 Log level
+debug: true
+logging:
+  level: debug
+
