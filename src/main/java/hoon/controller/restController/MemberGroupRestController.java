@@ -7,6 +7,7 @@ import hoon.util.Constants;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,9 +15,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpServletRequest;
+
 @RestController
 @RequestMapping("memberGroups")
 @Api(tags = "MemberGroup")
+@Slf4j
 public class MemberGroupRestController {
 
     private final MemberGroupService memberGroupService;
@@ -28,7 +32,8 @@ public class MemberGroupRestController {
 
     @GetMapping("{no}")
     @ApiOperation(value = "Get group", notes = "Returns the group and each member.")
-    public ResponseEntity<MemberGroup> getMemberGroup(@PathVariable("no") @ApiParam(value = "Group no", defaultValue = "1") long no) {
+    public ResponseEntity<MemberGroup> getMemberGroup(@PathVariable("no") @ApiParam(value = "Group no", defaultValue = "1") long no, HttpServletRequest request) {
+        log.info("api-key header : " + request.getHeader("api_key"));
         return ResponseEntity.ok().body(memberGroupService.getMemberGroup(no, Constants.EMPTY));
     }
 

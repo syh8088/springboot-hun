@@ -77,6 +77,8 @@
 ###### 참고
 [Plugin for generating QueryDSL model files.](https://plugins.gradle.org/plugin/com.ewerk.gradle.plugins.querydsl)
 
+- - -
+
 ### 4주차
 
 1. Member 수정, 저장
@@ -98,6 +100,8 @@
 ###### 참고
 [spring-docs 3. Auditing](https://docs.spring.io/spring-data/jpa/docs/1.7.0.DATAJPA-580-SNAPSHOT/reference/html/auditing.html)
      
+- - -
+
 ### 5주차
 1. Junit
     * @RunWith
@@ -115,6 +119,7 @@
 * Lambda
 * Thread
 
+- - -
 
 ### 6주차
 
@@ -125,6 +130,31 @@
 [Springfox Reference Documentation](https://springfox.github.io/springfox/docs/snapshot/)
 [Setting Up Swagger 2 with a Spring REST API](https://www.baeldung.com/swagger-2-documentation-for-spring-rest-api)
 
+- - -
+
+### 7주차
+1. Swagger
+    1. Redirect swagger-ui: SwaggerController.class
+    2. getHeader "api-key" : MemberGroupRestController.class
+2. Understanding proxy usage in Spring: posting
+3. CGLIB vs JDK Dynamic proxy
+4. EncryptAspect 와 EncryptType
+5. Proxy 와 @Transactional
+6. Async: AsyncTest.class
+
+###### 추가로 공부해야 할 것
+* transaction
+    * isolation level
+    * propagation
+* Thread Pool
+* Java Future
+
+###### 참고
+
+* [Transactions, Caching and AOP: understanding proxy usage in Spring](https://spring.io/blog/2012/05/23/transactions-caching-and-aop-understanding-proxy-usage-in-spring)
+* [How To Do @Async in Spring](https://www.baeldung.com/spring-async) 
+* [Caching Data with Spring](https://spring.io/guides/gs/caching/)
+* [Creating Asynchronous Methods](https://spring.io/guides/gs/async-method/)
 
 ### 앞으로의 대략적인 컨텐츠
 

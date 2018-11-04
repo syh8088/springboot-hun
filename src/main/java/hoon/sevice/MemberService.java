@@ -1,16 +1,17 @@
 package hoon.sevice;
 
-import hoon.dao.group.MemberGroupRepository;
 import hoon.dao.member.MemberMapper;
 import hoon.dao.member.MemberRepository;
 import hoon.model.entity.Member;
 import hoon.util.Constants;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
+@Slf4j
 public class MemberService {
 
     private final MemberMapper memberMapper;
@@ -19,16 +20,12 @@ public class MemberService {
     private static final String IGNORE_FIELD_WHEN_MODIFY[] = {Constants.DELETE_YN, Constants.REGISTER_YMDT, Constants.UPDATE_YMDT};
 
     @Autowired
-    MemberGroupRepository memberGroupRepository;
-
-    @Autowired
     public MemberService(MemberMapper memberMapper, MemberRepository memberRepository) {
         this.memberMapper = memberMapper;
         this.memberRepository = memberRepository;
     }
 
     public Member getMember(long no, String type) {
-
         Member member;
         switch (type) {
             case "default":

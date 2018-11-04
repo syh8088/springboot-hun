@@ -2,6 +2,8 @@ package hoon.model.entity;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import hoon.annotation.Encrypt;
+import hoon.model.enums.EncryptType;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -20,6 +22,8 @@ public class Member extends Common {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long memberNo;
     private String id;
+
+    @Encrypt
     private String password;
     private String name;
 
