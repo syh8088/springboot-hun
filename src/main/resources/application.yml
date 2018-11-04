@@ -9,6 +9,10 @@ spring:
       minimum-idle: 5
       maximum-pool-size: 5
       connection-timeout: 5000
+    sql-script-encoding: utf-8
+  jpa:
+    hibernate:
+      ddl-auto: none
 mybatis:
   mapper-locations: classpath*:mapper/**/*.xml
   type-aliases-package: hoon.model
@@ -17,4 +21,3 @@ mybatis:
 debug: true
 logging:
   level: debug
-

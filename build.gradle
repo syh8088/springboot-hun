@@ -1,5 +1,6 @@
 plugins {
     id 'org.springframework.boot' version '1.5.10.RELEASE'
+    id "com.ewerk.gradle.plugins.querydsl" version "1.0.10"
 }
 
 apply plugin: 'java'
@@ -8,13 +9,18 @@ apply plugin: 'org.springframework.boot'
 
 jar {
     baseName = 'myproject'
-    version =  '0.0.1-SNAPSHOT'
+    version = '0.0.1-SNAPSHOT'
 }
 
 repositories {
     jcenter()
     maven { url "https://repo.spring.io/snapshot" }
     maven { url "https://repo.spring.io/milestone" }
+}
+
+querydsl {
+    querydslDefault = true
+    jpa = true
 }
 
 dependencies {
@@ -24,5 +30,7 @@ dependencies {
     compile("org.projectlombok:lombok")
     compile("com.h2database:h2")
     compile("com.zaxxer:HikariCP:2.4.+")
+    compile group: 'com.querydsl', name: 'querydsl-jpa', version: '4.2.1'
+
     testCompile("org.springframework.boot:spring-boot-starter-test")
 }

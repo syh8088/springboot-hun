@@ -18,8 +18,18 @@ public class MemberController {
         this.memberService = memberService;
     }
 
-    @GetMapping("/members/{no}")
-    public ResponseEntity<Member> getMember(@PathVariable("no") long no) {
-        return ResponseEntity.ok().body(memberService.getMember(no));
+    @GetMapping("/members/{no}/types/{type}")
+    public ResponseEntity<Member> getMember(@PathVariable("no") long no, @PathVariable(value = "type", required = false) String type) {
+        return ResponseEntity.ok().body(memberService.getMember(no, type));
+    }
+
+    @GetMapping("/members") // NOTE: POST
+    public ResponseEntity<Member> saveMember() {
+        return ResponseEntity.ok().body(memberService.saveSomethingMember());
+    }
+
+    @GetMapping("/members/{no}/modify") // NOTE: PUT
+    public ResponseEntity<Member> modifyMember(@PathVariable("no") long no) {
+        return ResponseEntity.ok().body(memberService.modifyNameByName(no));
     }
 }

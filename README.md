@@ -53,6 +53,32 @@
 
 - - -
 
+### 3주차
+
+1. Spring JPA
+    1. 왜 JPA?
+        * DB CRUD를 위해 반복적인 SQL과 매핑 작업이 필요
+        * SQL에 의존적인 개발 (등록, 조회, 수정, 연관된 객체)
+        * 엔티티만 보고는 신뢰할 수 없음. (호출하는 SQL과 매핑 로직을 함께 봐야 함)
+        * SQL의 Join 문으로 객체의 그래프 탐색 깊이가 고정되어 있음
+        > 객체 모델과 관계형 DB 모델은 패러다임이 다르다.
+    2. 특징
+        * 쓰기 지연 SQL
+        * 자동 변경 감지
+        * 1차 캐시
+        * 엔티티 동일성
+        * 지연 로딩
+    3. MemberRepository, MemberRepositoryCustom, MemberRepositoryImpl 의 관계
+    4. 데이터를 가져오는 다양한 방법들
+        * 기본 메소드들(findOne, getOne, save ...)
+        * Query Method
+        * JPQL, SQL
+        * QueryDSL
+    5. 영속과 Transaction        
+
+###### 참고
+[Plugin for generating QueryDSL model files.](https://plugins.gradle.org/plugin/com.ewerk.gradle.plugins.querydsl)
+
 ### 앞으로의 대략적인 컨텐츠
 
 빈과 스레드 세이프

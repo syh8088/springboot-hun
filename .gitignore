@@ -275,3 +275,6 @@ package-lock.json
 
 # dotenv environment variables file
 .env
+
+# queryDSL q file
+src/querydsl
