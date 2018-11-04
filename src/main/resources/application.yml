@@ -1,6 +1,8 @@
 server:
   port: 8081
 spring:
+  profiles:
+    active: real
   h2:
     console:
       enabled: true
@@ -47,3 +49,15 @@ google:
     scope: email, profile
   resource:
     userInfoUri: https://www.googleapis.com/oauth2/v2/userinfo
+healthCheckMessage: default
+
+management:
+  port: 18081
+  security:
+    roles: ADMIN
+
+---
+
+spring:
+  profiles: real
+healthCheckMessage: real

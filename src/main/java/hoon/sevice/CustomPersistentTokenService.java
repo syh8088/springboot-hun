@@ -1,6 +1,8 @@
 package hoon.sevice;
 
 import hoon.dao.persistent.PersistentRepository;
+import hoon.error.errorCode.MemberErrorCode;
+import hoon.error.exception.MemberException;
 import hoon.model.entity.PersistentLoginToken;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.web.authentication.rememberme.PersistentRememberMeToken;
@@ -8,6 +10,8 @@ import org.springframework.security.web.authentication.rememberme.PersistentToke
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 import java.util.Date;
 import java.util.List;
 
@@ -43,8 +47,10 @@ public class CustomPersistentTokenService implements PersistentTokenRepository {
     public PersistentRememberMeToken getTokenForSeries(String seriesId) {
         PersistentLoginToken myToken = persistentRepository.findBySeries(seriesId);
         if (myToken == null) {
-            throw new  RuntimeException("not token");
+//            throw new MemberException(MemberErrorCode.NOT_FOUND_MEMBER);
+            return null;
         }
+
         return new PersistentRememberMeToken(myToken.getId(), myToken.getSeries(), myToken.getToken(), myToken.getLastused());
     }
 
@@ -52,5 +58,9 @@ public class CustomPersistentTokenService implements PersistentTokenRepository {
     public void removeUserTokens(String username) {
         List<PersistentLoginToken> myTokens = persistentRepository.findById(username);
         persistentRepository.delete(myTokens);
+    }
+
+    private void dd(HttpServletResponse httpServletResponse) throws IOException {
+        httpServletResponse.sendRedirect("login");
     }
 }

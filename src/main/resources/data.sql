@@ -3,8 +3,8 @@ INSERT INTO member (id, password, name, member_group_no) VALUES ('banana', '1234
 INSERT INTO member (id, password, name, member_group_no) VALUES ('orange', '1234_itWasEncrypt', '오렌지_작가', 2);
 INSERT INTO member (id, password, name, member_group_no, delete_yn) VALUES ('kiwi', '1234_itWasEncrypt', '키위_운영자_탈퇴', 1, 'Y');
 
-INSERT INTO role (name) VALUES ('WRITER');
 INSERT INTO role (name) VALUES ('ADMIN');
+INSERT INTO role (name) VALUES ('WRITER');
 INSERT INTO role (name) VALUES ('CLIENT');
 
 INSERT INTO member_role_mapping (member_no, role_no) VALUES (1, 1);

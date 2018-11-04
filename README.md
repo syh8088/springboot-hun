@@ -223,10 +223,45 @@
 ###### 참고
 * [OAuth 2 Explained](https://www.youtube.com/watch?v=L1PDqJkedZ0)
 
+- - -
 
-### 앞으로의 대략적인 컨텐츠?
+### 11주차
+1. JPA
+2. Remember me 이슈
+    1. Remember me와 세션
+    2. getTokenForSeries() 시 빌드 시 휘발되는 h2로 인해 유저 정보가 없는 경우
+3. Cache
+    1. Cache hit
+    2. 로컬 캐시와 분산 캐시
+    3. MemberGroupCacheTest.class
+4. Profile
+    1. Profile
+    2. @Value
+5. Spring actuator
+    1. beans 
+    2. autoconfig
+    3. metrics: heap, gc, thread 정보
+    4. health
+6. Error Handling
+    1. error.html
+    2. @ResponseStatus
+    3. @ControllerAdvice
+    
+###### 공부해야할 것
+* Scouter
+* BooleanExpression
+* gc(stw!)
+* memory leak
+* OOM
+* preparedStatement와 statement
+* health check
+  
+###### 참고
+* [Spring Boot – Profile based properties and yaml example](https://www.mkyong.com/spring-boot/spring-boot-profile-based-properties-and-yaml-example/)
+* [Spring-RememberMe 구현](https://minwan1.github.io/2017/08/06/2017-08-06-spring-remember-me/)
 
-* 프로파일과 @Value
-* Junit 과 Mockito 로 테스팅하기
-* ControllerAdvice
-* spring batch
+### 12주차 예정
+
+* Junit 과 Mockito 테스팅
+* Dispatcher servlet
+* Git flow

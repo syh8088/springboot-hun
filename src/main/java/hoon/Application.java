@@ -2,6 +2,7 @@ package hoon;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableOAuth2Client;
@@ -11,6 +12,7 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.E
 @EnableJpaAuditing
 @EnableAspectJAutoProxy
 @EnableOAuth2Client
+@EnableCaching
 public class Application {
     public static void main(String args[]) {
         SpringApplication.run(Application.class);
