@@ -17,7 +17,6 @@ repositories {
     maven { url "https://repo.spring.io/milestone" }
 }
 
-// TODO #2
 dependencies {
     compile("org.springframework.boot:spring-boot-starter-web")
     compile("org.mybatis.spring.boot:mybatis-spring-boot-starter:1.3.+")

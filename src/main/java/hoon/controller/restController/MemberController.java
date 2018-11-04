@@ -18,7 +18,6 @@ public class MemberController {
         this.memberService = memberService;
     }
 
-    // TODO #3 목표
     @GetMapping("/members/{no}")
     public ResponseEntity<Member> getMember(@PathVariable("no") long no) {
         return ResponseEntity.ok().body(memberService.getMember(no));

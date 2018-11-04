@@ -1,4 +1,3 @@
--- TODO #5 create TABLE 1
 CREATE TABLE member
 (
   member_no BIGINT AUTO_INCREMENT PRIMARY KEY NOT NULL,

@@ -9,7 +9,6 @@ import javax.sql.DataSource;
 @Configuration
 public class DatabaseConfig {
 
-    // TODO #14 DataSource Bean 생성
     @Bean
     public DataSource masterDataSource() {
         HikariDataSource dataSource = new HikariDataSource();

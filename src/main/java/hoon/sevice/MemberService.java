@@ -15,7 +15,6 @@ public class MemberService {
         this.memberMapper = memberMapper;
     }
 
-    //TODO #9 MVC 역할과 Mapper 인터페이스
     public Member getMember(long no) {
         return memberMapper.selectById(no);
     }

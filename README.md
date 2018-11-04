@@ -55,6 +55,8 @@
 
 ### 앞으로의 대략적인 컨텐츠
 
+빈과 스레드 세이프
+
 * Mybatis + H2 로 간단한 테스트 DB 만들기
 
 * Template engine - Thymeleaf 세팅
@@ -83,6 +85,8 @@
 * MessageSources
     * internationalization
     * interceptor
+    
+    
 * Exception 처리하기
     * 어디서 처리해야하나?
     * ControllerAdvice, ExceptionHandler
