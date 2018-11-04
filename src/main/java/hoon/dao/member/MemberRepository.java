@@ -14,4 +14,6 @@ public interface MemberRepository extends JpaRepository<Member, Long>, MemberRep
     Member selectByNo(@Param("no") long no);
 
     Member findByOauthTypeAndOauthId(OauthType oauthType, String oauthId);
+
+    Member findById(String id);
 }

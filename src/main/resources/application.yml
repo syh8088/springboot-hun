@@ -13,6 +13,9 @@ spring:
   jpa:
     hibernate:
       ddl-auto: none
+  messages: # NOTE #10 만약 한글이 꺠진다면 file encodings 에서 UTF-8을 확인하세요!
+    basename: messages/messages, messages/error
+
 mybatis:
   mapper-locations: classpath*:mapper/**/*.xml
   type-aliases-package: hoon.model

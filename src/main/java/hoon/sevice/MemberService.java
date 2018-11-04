@@ -10,9 +10,7 @@ import org.hibernate.Hibernate;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.TransactionStatus;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.transaction.support.TransactionCallback;
 import org.springframework.transaction.support.TransactionTemplate;
 
 @Service
@@ -79,5 +77,9 @@ public class MemberService {
             Hibernate.initialize(member.getRoles());
         }
         return member;
+    }
+
+    public boolean isAlreadyRegisteredId(String id) {
+        return memberRepository.findById(id) != null;
     }
 }

@@ -6,8 +6,8 @@ import hoon.config.handler.UserServiceHandler;
 import hoon.model.enums.OauthType;
 import hoon.model.wrappper.ClientResources;
 import hoon.sevice.MemberService;
+import hoon.sevice.CustomPersistentTokenService;
 import hoon.util.CustomPasswordEncoder;
-import net.bytebuddy.asm.Advice;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.security.oauth2.resource.UserInfoTokenServices;
 import org.springframework.boot.context.properties.ConfigurationProperties;
@@ -26,7 +26,6 @@ import org.springframework.security.oauth2.client.filter.OAuth2ClientContextFilt
 import org.springframework.security.web.authentication.www.BasicAuthenticationFilter;
 import org.springframework.web.filter.CompositeFilter;
 
-import javax.jws.Oneway;
 import javax.servlet.Filter;
 import java.util.ArrayList;
 import java.util.List;
@@ -65,6 +64,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .anyRequest().authenticated()
                 .and().formLogin().defaultSuccessUrl(homeUrl, true)
                 .and().logout().logoutSuccessUrl(homeUrl)
+                .and().rememberMe()
+                    .key("hoon")
+                    .rememberMeParameter("remember-me")
+                    .rememberMeCookieName("hoon-cookie")
+                    .tokenValiditySeconds(10000)
+                    .tokenRepository(rememberMeTokenService()) // NOTE #10 CustomPersistentTokenService.class 로 H2에 저장하는 CRUD 메소드들을 Override!
                 .and().csrf().disable();
 
         // NOTE #8 h2 web-console을 security 내에서 사용하려면 x-frame-options 허용해야 함.
@@ -73,10 +78,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.addFilterBefore(ssoFilter(), BasicAuthenticationFilter.class);
     }
 
+
+
     @Override
     public void configure(WebSecurity web) {
-        web.ignoring()
-                .antMatchers("/h2-console/**");
+
+        web.ignoring().antMatchers("/v2/api-docs", "/configuration/ui", "/swagger-resources/**", "/configuration/**", "/swagger-ui.html", "/webjars/**", "/h2-console/**");
     }
 
     @Override
@@ -128,5 +135,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         registration.setFilter(filter);
         registration.setOrder(-100);
         return registration;
+    }
+
+    @Bean
+    public CustomPersistentTokenService rememberMeTokenService() {
+        return new CustomPersistentTokenService();
     }
 }

@@ -8,19 +8,20 @@
 <body>
 <H6>
     <th:block sec:authorize="!isAuthenticated()">
-        <a th:href="@{/login}">로그인</a>
-        <a th:href="@{/login/naver}">naver 로그인</a>
-        <a th:href="@{/login/google}">google 로그인</a>
+        <a th:text="#{comm.login}" th:href="@{/login}"></a>
+        <a th:text="#{comm.login.naver}" th:href="@{/login/naver}"></a>
+        <a th:text="#{comm.login.google}" th:href="@{/login/google}"></a>
     </th:block>
     <th:block sec:authorize="isAuthenticated()">
-        이름 : <span sec:authentication="name"></span> |
-        권한 : <span sec:authentication="principal.authorities"></span> |
-        <a th:href="@{/logout}">로그아웃</a>
+
+        <th:block th:text="#{comm.name}"/> : <span sec:authentication="name"></span> |
+        <th:block th:text="#{comm.authority}"/> : <span sec:authentication="principal.authorities"></span> |
+        <a th:text="#{comm.logout}" th:href="@{/logout}"></a>
     </th:block>
 </H6>
 
-<H2>main</H2>
-<H3>Accessible to anyone</H3>
+<H2 th:text="#{main.title}"></H2>
+<H3 th:text="#{main.subtitle}"></H3>
 
 <div sec:authorize="isAuthenticated()">
     <br/><br/>

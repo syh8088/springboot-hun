@@ -203,21 +203,30 @@
 
 - - -
 
+### 10주차
+1. Spring Security
+    1. remember me 세팅하기
+2. validate
+    1. @Valid, bindingResult
+    2. Validator.class
+    3. MemberException, ErrorCode 와의 관계 - 인터페이스
+    4. MemberException, CustomMessageHandler 와의 관계 - bean 과 util class
+    5. MessageSource
+3. LocaleConfig
+   1. CookieLocaleResolver
+   2. LocaleChangeInterceptor
+
+###### 공부할 것
+* Web 서버와 WAS
+* Reverse proxy
+
+###### 참고
+* [OAuth 2 Explained](https://www.youtube.com/watch?v=L1PDqJkedZ0)
+
+
 ### 앞으로의 대략적인 컨텐츠?
 
 * 프로파일과 @Value
-
-* Template engine - Thymeleaf 세팅
-* Spring valid 와 BindingResult 로 유효성 검증
-
 * Junit 과 Mockito 로 테스팅하기
-
-* MessageSources
-    * internationalization
-    * interceptor
-        
-* Exception 처리하기
-    * 어디서 처리해야하나?
-    * ControllerAdvice, ExceptionHandler
-    
+* ControllerAdvice
 * spring batch

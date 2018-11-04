@@ -39,4 +39,13 @@ CREATE TABLE member_group
   delete_yn       VARCHAR2(1)                       NOT NULL DEFAULT 'N',
   register_ymdt   TIMESTAMP                         NOT NULL DEFAULT CURRENT_TIMESTAMP,
   update_ymdt     TIMESTAMP                         NOT NULL DEFAULT CURRENT_TIMESTAMP
-)
+);
+
+CREATE TABLE persistent_login_token
+(
+  idx           BIGINT AUTO_INCREMENT PRIMARY KEY NOT NULL,
+  series        text                  NOT NULL,
+  id            text                  NOT NULL,
+  token         text                  NOT NULL,
+  lastUsed      text                  NOT NULL
+);
