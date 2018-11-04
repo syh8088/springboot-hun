@@ -11,7 +11,7 @@ import javax.persistence.*;
 @ToString
 @Entity
 @Table(name = "role")
-public class Role {
+public class Role extends Common {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

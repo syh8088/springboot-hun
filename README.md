@@ -68,16 +68,36 @@
         * 1차 캐시
         * 엔티티 동일성
         * 지연 로딩
-    3. MemberRepository, MemberRepositoryCustom, MemberRepositoryImpl 의 관계
-    4. 데이터를 가져오는 다양한 방법들
+    3. 데이터를 가져오는 다양한 방법들
         * 기본 메소드들(findOne, getOne, save ...)
         * Query Method
         * JPQL, SQL
         * QueryDSL
-    5. 영속과 Transaction        
 
 ###### 참고
 [Plugin for generating QueryDSL model files.](https://plugins.gradle.org/plugin/com.ewerk.gradle.plugins.querydsl)
+
+### 4주차
+
+1. Member 수정, 저장
+    영속과 Transaction
+1. Spring JPA 심화
+    * 매핑관계
+        * manytoone
+        * onetomany
+        * manytomany
+    * 상속관계 매핑
+        * MappedSuperclass
+    * N + 1 이슈
+        * fetchJoin
+    * 기타    
+        * @EnableJpaAuditing
+        * @Type("yes_no)
+        * projections
+
+###### 참고
+[spring-docs 3. Auditing](https://docs.spring.io/spring-data/jpa/docs/1.7.0.DATAJPA-580-SNAPSHOT/reference/html/auditing.html)
+     
 
 ### 앞으로의 대략적인 컨텐츠
 

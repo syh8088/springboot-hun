@@ -10,7 +10,7 @@ import javax.persistence.*;
 @Setter
 @ToString
 @Entity
-public class MemberRoleMapping {
+public class MemberRoleMapping extends Common {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

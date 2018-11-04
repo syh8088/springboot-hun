@@ -18,7 +18,7 @@ public class MemberRepositoryImpl extends QueryDslRepositorySupport implements M
     }
 
     @Override
-    public hoon.model.entity.Member getMemberByNo(long no) {
+    public Member getMemberByNo(long no) {
 
         return from(member)
                 .where(member.memberNo.eq(no))
