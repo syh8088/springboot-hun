@@ -12,7 +12,7 @@ import java.util.List;
 @Getter
 @Setter
 @ToString
-@Entity // TODO #1 JPA @Entity
+@Entity
 public class Member {
 
     // TODO #2 @Id는 필수!

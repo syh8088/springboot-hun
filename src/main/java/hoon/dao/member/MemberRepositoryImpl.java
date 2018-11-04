@@ -4,7 +4,6 @@ import hoon.model.entity.Member;
 import hoon.model.entity.QMember;
 import org.springframework.data.jpa.repository.support.QueryDslRepositorySupport;
 
-// TODO #3-4 QueryDSL
 public class MemberRepositoryImpl extends QueryDslRepositorySupport implements MemberRepositoryCustom {
 
     QMember member = QMember.member;

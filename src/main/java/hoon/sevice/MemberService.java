@@ -24,7 +24,6 @@ public class MemberService {
 
     public Member getMember(long no, String type) {
 
-        // TODO #3 여러가지 방법들
         Member member = null;
         switch (type) {
             case "default":
@@ -46,7 +45,6 @@ public class MemberService {
         return member;
     }
 
-    // TODO #4 save
     public Member saveSomethingMember() {
         Member member = new Member();
         member.setId("do" + new Random().nextInt());
@@ -54,7 +52,6 @@ public class MemberService {
         return memberRepository.save(member);
     }
 
-    // TODO #3 modify
     @Transactional
     public Member modifyNameByName(long no) {
         Member member = memberRepository.findOne(no);
