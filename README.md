@@ -98,30 +98,35 @@
 ###### 참고
 [spring-docs 3. Auditing](https://docs.spring.io/spring-data/jpa/docs/1.7.0.DATAJPA-580-SNAPSHOT/reference/html/auditing.html)
      
+### 5주차
+1. Junit
+    * @RunWith
+    * @SpringBootTest
+2. bean
+    * 동일성, 동등성 (BeanIdentityTest.class)
+    * Bean 은 기본적으로 Singleton
+        * Garbage collection 
+    * Singleton 예제 - Calculator (ThreadSafeTest.class)
+        * Thread 의 stack, heap 영역(각각 지역변수, 전역변수)
+    
+###### 공부해야할 것
+* JVM 메모리 영역
+* Garbage Collection
+* Lambda
+* Thread
+
 
 ### 앞으로의 대략적인 컨텐츠
 
 빈과 스레드 세이프
 
-* Mybatis + H2 로 간단한 테스트 DB 만들기
-
 * Template engine - Thymeleaf 세팅
-* Swagger 로 RestAPI view 만들기
 * Spring valid 와 BindingResult 로 유효성 검증
+
+* Swagger 로 RestAPI view 만들기
 * war 와 jar 차이점
 * Junit 과 Mockito 로 테스팅하기
 
-* Spring data(JPA)
-    * Entity
-    * 쿼리메소드
-    * 한계
-* QueryDSL
-
-* Spring Security
-    * login
-    * architecture
-    * Authentication and AccessController
-    * Filter
 
 * AOP 와 응용 모듈들
     * transactional
@@ -131,9 +136,13 @@
 * MessageSources
     * internationalization
     * interceptor
-    
-    
+        
 * Exception 처리하기
     * 어디서 처리해야하나?
     * ControllerAdvice, ExceptionHandler
 
+* Spring Security
+    * login
+    * architecture
+    * Authentication and AccessController
+    * Filter

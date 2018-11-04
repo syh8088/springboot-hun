@@ -2,7 +2,7 @@ package hoon.sevice;
 
 import org.springframework.stereotype.Service;
 
-@Service()
+@Service
 public class HelloService {
 
     public String getService() {

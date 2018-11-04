@@ -23,13 +23,13 @@ public class Member extends Common {
     private String password;
     private String name;
 
-    // TODO #4-8 ManyToOne
+    // NOTE #4-8 ManyToOne
     @ManyToOne
     @JoinColumn(name = "member_group_no")
     @JsonIgnore
     private  MemberGroup memberGroup;
 
-    // TODO #4-10 ManyToMany
+    // NOTE #4-10 ManyToMany
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "member_role_mapping",
             joinColumns = @JoinColumn(name = "memberNo"),
@@ -37,7 +37,7 @@ public class Member extends Common {
     private List<Role> roles = new ArrayList<>();
 
 
-    // TODO #4-11
+    // NOTE #4-11
     /*
     * fetchType 이 Eager 인 경우 findOne 할때 함꼐 join
     * Lazy 인 경우엔 해당 entity의 멤버 변수에 get 할떄 join

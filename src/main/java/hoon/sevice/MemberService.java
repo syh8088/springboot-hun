@@ -53,15 +53,15 @@ public class MemberService {
         return memberRepository.save(member);
     }
 
-    // TODO #4-2 JPA 의 Flush 이 되는 시점은 Transaction 이 끝날떄 입니다.
-    // TODO #4-3 findOne, getOne 기타 등등으로 entity 를 가져오면 영속상태가 됩니다.(단, transaction 상태인 경우에만 유지가 됩니다.)
+    // NOTE #4-2 JPA 의 Flush 이 되는 시점은 Transaction 이 끝날떄 입니다.
+    // NOTE #4-3 findOne, getOne 기타 등등으로 entity 를 가져오면 영속상태가 됩니다.(단, transaction 상태인 경우에만 유지가 됩니다.)
     @Transactional
     public Member modifyNameByName(Member member) {
         Member originMember = memberRepository.findOne(member.getMemberNo());
 
-        // TODO #4-4 BeanUtils 는 굉장히 유용합니다.
+        // NOTE #4-4 BeanUtils 는 굉장히 유용합니다.
         BeanUtils.copyProperties(member, originMember, IGNORE_FIELD_WHEN_MODIFY);
-        // TODO #4-5 강제 flush = save()
+        // NOTE #4-5 강제 flush = save()
         // memberRepository.save(originMember);
         return member;
     }

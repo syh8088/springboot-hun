@@ -32,7 +32,7 @@ public class MemberGroupRestController {
         return ResponseEntity.ok().body(memberGroupService.getMemberGroup(no, type));
     }
 
-    @GetMapping("/{no}/MemberGroupViewModel")
+    @GetMapping("{no}/MemberGroupViewModel")
     public ResponseEntity<MemberGroupViewModel> getMemberGroupViewModel(@PathVariable("no") long no) {
         return ResponseEntity.ok().body(memberGroupService.getMemberGroupViewModel(no));
     }

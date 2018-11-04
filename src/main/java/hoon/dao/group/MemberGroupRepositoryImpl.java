@@ -18,7 +18,7 @@ public class MemberGroupRepositoryImpl extends QueryDslRepositorySupport impleme
 
     @Override
     public MemberGroup selectByNo(long no) {
-        // TODO #4-12 아래와 같이 QueryDSL 의 fetchJoin 으로 N+1 문제를 해결합니다.
+        // NOTE #4-12 아래와 같이 QueryDSL 의 fetchJoin 으로 N+1 문제를 해결합니다.
         return from(memberGroup)
                 .leftJoin(memberGroup.members, member).fetchJoin()
                 .leftJoin(member.roles).fetchJoin()
@@ -28,7 +28,7 @@ public class MemberGroupRepositoryImpl extends QueryDslRepositorySupport impleme
 
     @Override
     public MemberGroupViewModel selectMemberGroupViewModel(long no) {
-        // TODO #4-13 Projections.bean 과 select()를 사용하면 entity 가 아닌 모델도 리턴할 수 있습니다.
+        // NOTE #4-13 Projections.bean 과 select()를 사용하면 entity 가 아닌 모델도 리턴할 수 있습니다.
         return from(memberGroup)
                 .select(
                         Projections.bean(MemberGroupViewModel.class,
