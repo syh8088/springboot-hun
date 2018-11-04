@@ -260,8 +260,38 @@
 * [Spring Boot – Profile based properties and yaml example](https://www.mkyong.com/spring-boot/spring-boot-profile-based-properties-and-yaml-example/)
 * [Spring-RememberMe 구현](https://minwan1.github.io/2017/08/06/2017-08-06-spring-remember-me/)
 
-### 12주차 예정
+### 12주차
+1. DispatcherServlet 의 구조와 요청 처리 프로세스
+    1. GenericServlet.class
+        * init()
+    2. HttpServlet.class
+        * doGet(), doPost()
+    3. HttpServletBean.class
+        * overriding init()
+        * initServletBean()
+    4. FrameworkServlet.class
+        * overriding initServletBean()
+            * initWebApplicationContext() 에서 root ApplicationContext
+        * overriding doGet(), doPost() ...
+            * 모든 요청은 processRequest(req, rep)로 doService(req, rep)을 실행 - frontController(DispatcherServlet) 에게 위임 
+    5. DispatcherServlet.class
+        * overriding doService() -> doDispatch(req, rep)
+            1. mappedHandler = getHandler(processedRequest);
+                * HandlerMapping: 들어온 요청을 매핑할 handler 를 결정
+                * HandlerExecutionChain = controller + interceptor
+            2. HandlerAdapter ha = getHandlerAdapter(mappedHandler.getHandler());
+                * HandlerAdapter: dispatcher 에게 실 구현 Handler 를 연결
+            3. Process last-modified header 
+            4. Apply preHandle methods of registered interceptors(mappedHandler.applyPreHandle(processedRequest, response))
+            5. Actually invoke the handler. (.handle(processedRequest, response, mappedHandler.getHandler()))
+            6. Apply postHandle methods of registered interceptors. (mappedHandler.applyPostHandle(processedRequest, response, mv);)
+            7. processDispatchResult(req, rep, ...):  핸들러 결과 처리, render(mv, request, response)
+    6. FrameworkServlet 의 publishRequestHandledEvent(req, rep, ...)
+2. 마무리
 
-* Junit 과 Mockito 테스팅
-* Dispatcher servlet
-* Git flow
+###### 공부할 것 
+* 정규화와 역정규화
+* inner, left join
+
+###### 참고
+* [SPRING MVC REQUEST LIFE CYCLE](https://justforchangesake.wordpress.com/2014/05/07/spring-mvc-request-life-cycle/)

@@ -25,7 +25,8 @@ mybatis:
     map-underscore-to-camel-case: true
 debug: true
 logging:
-  level: debug
+  level:
+    org.springframework: debug
 
 naver:
   client:
