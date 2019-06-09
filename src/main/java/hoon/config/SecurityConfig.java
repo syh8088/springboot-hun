@@ -2,7 +2,6 @@ package hoon.config;
 
 import hoon.config.handler.CustomAuthenticationProvider;
 import hoon.config.handler.OAuthSuccessHandler;
-import hoon.config.handler.UserServiceHandler;
 import hoon.model.enums.OauthType;
 import hoon.model.wrappper.ClientResources;
 import hoon.sevice.MemberService;
@@ -34,20 +33,19 @@ import java.util.List;
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     private final static String homeUrl = "/main";
-    private final UserServiceHandler userServiceHandler;
+    //private final UserServiceHandler userServiceHandler;
 
     private final OAuth2ClientContext oauth2ClientContext;
     private final MemberService memberService;
 
-    @Autowired
-    private CustomAuthenticationProvider customAuthenticationProvider;
+    private final CustomAuthenticationProvider customAuthenticationProvider;
 
 
     @Autowired
-    public SecurityConfig(UserServiceHandler userServiceHandler, OAuth2ClientContext oauth2ClientContext, MemberService memberService) {
-        this.userServiceHandler = userServiceHandler;
+    public SecurityConfig(OAuth2ClientContext oauth2ClientContext, MemberService memberService, CustomAuthenticationProvider customAuthenticationProvider) {
         this.oauth2ClientContext = oauth2ClientContext;
         this.memberService = memberService;
+        this.customAuthenticationProvider = customAuthenticationProvider;
     }
 
     @Bean

@@ -16,12 +16,12 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
 
     private final UserServiceHandler userServiceHandler;
 
-    private final PasswordEncoder passwordEncoder;
+    @Autowired
+    private  PasswordEncoder passwordEncoder;
 
     @Autowired
-    public CustomAuthenticationProvider(UserServiceHandler userServiceHandler, PasswordEncoder passwordEncoder) {
+    public CustomAuthenticationProvider(UserServiceHandler userServiceHandler) {
         this.userServiceHandler = userServiceHandler;
-        this.passwordEncoder = passwordEncoder;
     }
 
     @Override
