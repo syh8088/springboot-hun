@@ -38,14 +38,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     private final OAuth2ClientContext oauth2ClientContext;
     private final MemberService memberService;
 
-    private final CustomAuthenticationProvider customAuthenticationProvider;
+    @Autowired
+    private CustomAuthenticationProvider customAuthenticationProvider;
 
 
     @Autowired
-    public SecurityConfig(OAuth2ClientContext oauth2ClientContext, MemberService memberService, CustomAuthenticationProvider customAuthenticationProvider) {
+    public SecurityConfig(OAuth2ClientContext oauth2ClientContext, MemberService memberService) {
         this.oauth2ClientContext = oauth2ClientContext;
         this.memberService = memberService;
-        this.customAuthenticationProvider = customAuthenticationProvider;
     }
 
     @Bean
