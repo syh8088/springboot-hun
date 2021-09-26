@@ -30,8 +30,8 @@ logging:
 
 naver:
   client:
-    clientId: ZYywOLuKwRvc5jHguZy4
-    clientSecret: 9I1vFrLO9R
+    clientId: 0OMq_maxIDXzXvxFl_jk
+    clientSecret: bdXMtVgbhB
     accessTokenUri: https://nid.naver.com/oauth2.0/token
     userAuthorizationUri: https://nid.naver.com/oauth2.0/authorize
     tokenName: oauth_token
